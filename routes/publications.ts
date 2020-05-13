@@ -4,7 +4,7 @@ import { Publication } from "../types/types.ts";
 
 const router = new Router();
 
-router.get("/publications", async ({ response }) => {
+router.get("/publications", async ({ response }: { response: any }) => {
   const publications: Publication[] | undefined = await PublicationService
     .getPublications();
 

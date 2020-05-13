@@ -1,7 +1,6 @@
 import { Router } from "https://deno.land/x/oak/mod.ts";
 import UserService from "../services/user.ts";
 import { User } from "../types/types.ts";
-import { get } from "../util/storage.ts";
 
 const router = new Router();
 
