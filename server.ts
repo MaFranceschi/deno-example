@@ -1,4 +1,5 @@
 import { Application } from "https://deno.land/x/oak/mod.ts";
+import { environment } from "./services/environment.ts";
 
 import {
   CommonRoutes,
@@ -8,16 +9,15 @@ import {
 } from "./routes/index.ts";
 
 const app = new Application();
-const port = 8000;
 
-app.use((context, next) => {
-  console.log(context.request.method, context.request.url);
-  next();
+app.use(async (context, next) => {
+  await next();
+  console.log(context.request.method, context.request.url.pathname);
 });
 
+app.use(UserRoutes.routes());
 app.use(CommonRoutes.routes());
 app.use(PostRoutes.routes());
 app.use(PublicationRoutes.routes());
-app.use(UserRoutes.routes());
 
-await app.listen({ port });
+await app.listen({ port: parseInt(environment.APP_PORT) });
