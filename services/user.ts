@@ -1,8 +1,15 @@
+import { integrationKey } from "../util/environment.ts";
+
 const UserService = {
   getProfile: async () => {
     try {
       const response = await fetch(
-        "https://api.medium.com/v1/me",
+        "/me",
+        {
+          headers: {
+            Authorization: `Bearer ${integrationKey}`,
+          },
+        },
       );
       const data = await response.json();
       return data;
