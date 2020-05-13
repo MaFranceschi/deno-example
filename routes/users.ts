@@ -1,14 +1,16 @@
 import { Router } from "https://deno.land/x/oak/mod.ts";
 import UserService from "../services/user.ts";
+import { User } from "../types/user.ts";
 
 const router = new Router();
 
 router.get("/users", async ({ response }) => {
-  const profile = await UserService.getProfile();
+  const profile: User = await UserService.getProfile();
+
   if (profile) {
-    response.body = { message: "success", data: profile };
+    response.body = { message: "success", ...profile };
   } else {
-    response.body = { message: "An error ocurred" };
+    response.body = { message: "an error ocurred" };
   }
 });
 
