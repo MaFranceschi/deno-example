@@ -1,11 +1,17 @@
-import { User } from "../types/user.ts";
+import { User } from "../types/types.ts";
 
 interface Store {
   user: User;
 }
 
 const store = {
-  user: {},
+  user: {
+    id: "",
+    username: "",
+    name: "",
+    url: "",
+    imageUrl: "",
+  },
 };
 
 const get = () => {
