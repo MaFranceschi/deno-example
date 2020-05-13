@@ -6,7 +6,7 @@ import { get } from "../util/storage.ts";
 const router = new Router();
 
 router.get("/users", async ({ response }) => {
-  const profile: User = await UserService.getProfile();
+  const profile: User | undefined = await UserService.getProfile();
 
   if (profile) {
     response.body = { message: "success", data: profile };
