@@ -21,4 +21,5 @@ app.use(PostRoutes.routes());
 app.use(PublicationRoutes.routes());
 app.use(CommonRoutes.routes());
 
+console.log(`App running on Port http://localhost:${port}`);
 await app.listen({ port });
