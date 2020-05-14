@@ -39,7 +39,7 @@ Deno.test("UserService: Fail getting user profile", async () => {
 
   const mockFetch = stub(window, "fetch", () => mockFetchPromise);
 
-  const userProfile: any = await UserService.getProfile();
+  const userProfile = await UserService.getProfile();
 
   assertEquals(userProfile, undefined);
   mockFetch.restore();

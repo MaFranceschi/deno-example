@@ -51,7 +51,7 @@ Deno.test("PublicationService: Fail getting user publications", async () => {
 
   const mockFetch = stub(window, "fetch", () => mockFetchPromise);
 
-  const userPublications: any = await PublicationService.getPublications();
+  const userPublications = await PublicationService.getPublications();
 
   assertEquals(userPublications, undefined);
   mockFetch.restore();

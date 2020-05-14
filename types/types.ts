@@ -19,6 +19,19 @@ export interface Post {
   contentFormat: string;
   content: string;
   canonicalUrl: string;
-  tags: string;
+  tags: string[];
   publishStatus: string;
+}
+
+export interface CreatedPost {
+  id: string;
+  title: string;
+  authorId: string;
+  tags: string[];
+  url: string;
+  canonicalUrl: string;
+  publishStatus: string;
+  publishedAt: number;
+  license: string;
+  licenseUrl: string;
 }

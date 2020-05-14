@@ -1,12 +1,12 @@
 import { Router } from "https://deno.land/x/oak/mod.ts";
 import PostService from "../services/post.ts";
-import { Post } from "../types/types.ts";
+import { CreatedPost } from "../types/types.ts";
 
 const router = new Router();
 
 router.post("/posts", async ({ request, response }) => {
   const { value } = await request.body();
-  const post: Post | undefined = await PostService.createPost(value);
+  const post: CreatedPost | undefined = await PostService.createPost(value);
 
   if (post) {
     response.body = { message: "success", data: post };

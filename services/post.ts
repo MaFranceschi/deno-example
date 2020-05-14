@@ -1,10 +1,10 @@
 import * as log from "https://deno.land/std/log/mod.ts";
 import { integrationKey, mediumUrl } from "../util/environment.ts";
-import { Post } from "../types/types.ts";
+import { CreatedPost, Post } from "../types/types.ts";
 import { get } from "../util/storage.ts";
 
 const PublicationService = {
-  createPost: async (newPost: Post): Promise<Post | undefined> => {
+  createPost: async (newPost: Post): Promise<CreatedPost | undefined> => {
     try {
       const { id: userId } = get();
       const response = await fetch(
